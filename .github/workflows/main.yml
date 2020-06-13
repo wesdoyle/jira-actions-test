@@ -25,4 +25,5 @@ jobs:
           uses: atlassian/gajira-comment@master
           with:
            issue: ${{ steps.find_issue_from_comment.outputs.issue }}
-           comment: "${{ github.event.pusher.name }} pushed to repo: ${{ github.event.repository.full_name }}"
+           # comment: "${{ github.event.pusher.name }} pushed to repo: ${{ github.event.repository.full_name }}"
+           comment: "test comment"
