@@ -26,6 +26,5 @@ jobs:
           uses: atlassian/gajira-comment@master
           with:
             issue: ${{ steps.get_jira_issue.outputs.issue }}
-            # comment: "${{ github.event.pusher.name }} pushed to repo: ${{ github.event.repository.full_name }}"
-            comment: "${{ event.pusher.name }} [pushed|${{ event.compare }}] ${{ event.commits.length }} commits to ${{ event.ref }} in ${{ event.repository.full_name }}"
+            comment: "${{ github.event.pusher.name }} [pushed|${{ github.event.compare }}] ${{ github.event.commits.length }} commits to ${{ github.event.ref }} in ${{ github.event.repository.full_name }}"
 
