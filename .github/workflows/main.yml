@@ -17,16 +17,14 @@ jobs:
             JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
 
         - name: find issue from comment
+          id: get_jira_issue
           uses: atlassian/gajira-find-issue-key@master
           with:
             from: commits
 
-        - name: echo issue
-          run: echo ${{ steps.find_issue_from_comment.outputs }}
-
         - name: Comment on issue
           uses: atlassian/gajira-comment@master
           with:
-              # issue: ${{ steps.find_issue_from_comment.outputs.issue }}
-              issue: TP-1
-              comment: "${{ github.event.pusher.name }} pushed to repo: ${{ github.event.repository.full_name }}"
+            issue: ${{ steps.get_jira_issue.outputs.issue }}
+            comment: "${{ github.event.pusher.name }} pushed to repo: ${{ github.event.repository.full_name }}"
+
