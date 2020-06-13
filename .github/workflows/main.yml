@@ -21,9 +21,14 @@ jobs:
           with:
             from: commits
 
-        - name: comment on an issue
+            # - name: comment on an issue
+            #   uses: atlassian/gajira-comment@master
+            #   with:
+            #       issue: ${{ steps.find_issue_from_comment.outputs.issue }}
+            #       comment: "${{ github.event.pusher.name }} pushed to repo: ${{ github.event.repository.full_name }}"
+
+        - name: Comment on issue
           uses: atlassian/gajira-comment@master
           with:
-          issue: ${{ steps.find_issue_from_comment.outputs.issue }}
-          # comment: "${{ github.event.pusher.name }} pushed to repo: ${{ github.event.repository.full_name }}"
-          comment: "test comment"
+              issue: TP-1
+              comment: Hello from GitHub actions
