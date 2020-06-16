@@ -22,8 +22,9 @@ jobs:
           with:
             from: commits
 
-        - name: Transition Jira issue
+        - name: Transition Jira issue to Done
           uses: atlassian/gajira-transition@master
           with:
               issue: ${{ steps.get_jira_issue.outputs.issue }}
-              transition: "In progress"
+              transition: "Done"
+              if: "endsWith(github.event.head_commit.message, 'CLOSE ISSUE')"
