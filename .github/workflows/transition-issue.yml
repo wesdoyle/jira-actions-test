@@ -26,4 +26,4 @@ jobs:
           uses: atlassian/gajira-transition@master
           with:
               issue: ${{ steps.get_jira_issue.outputs.issue }}
-          transition: "In progress"
+              transition: "In progress"
