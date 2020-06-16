@@ -1,3 +1,8 @@
+# This is an example workflow for closing an issue based on commit
+# message. For this action to trigger moving the issue associated with
+# the commit into DONE, the commit message must contain the substring
+# CLOSE ISSUE at the end of the commit message.
+
 name: Transition Jira Issue
 
 on:
