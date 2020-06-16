@@ -1,3 +1,8 @@
+# This is an example workflow for closing an issue based on commit
+# message. For this action to trigger moving the issue associated with
+# the commit into DONE, the commit message must contain the substring
+# CLOSE ISSUE at the end of the commit message.
+
 name: Transition Jira Issue
 
 on:
@@ -22,8 +27,9 @@ jobs:
           with:
             from: commits
 
-        - name: Transition Jira issue
+        - name: Transition Jira issue to Done
           uses: atlassian/gajira-transition@master
           with:
               issue: ${{ steps.get_jira_issue.outputs.issue }}
-              transition: "In progress"
+              transition: "Done"
+              if: "endsWith(github.event.head_commit.message, 'CLOSE ISSUE')"
