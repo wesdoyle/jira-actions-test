@@ -7,6 +7,10 @@ This repository contains two example GitHub actions for Jira automation.  Either
 A. Comment on Jira Issue on commit
 
   - [add-comment-to-issue.yml](.github/workflows/add-comment-to-issue.yml)
+  - On push, find an associated Jira issue from the commits and post a comment to that issue.
+  -  Takes the form "<user> pushed to <branch> in <repository>"
+
+
 
 B. Move issue to Done state when commit message ends with substring `CLOSE ISSUE`
 
@@ -18,7 +22,7 @@ B. Move issue to Done state when commit message ends with substring `CLOSE ISSUE
 The following key-value pairs need to be added to GitHub Secrets for the repositories where the GitHub Actions are to be run:
 
 - `JIRA_API_TOKEN`
-  - Create the Jira API token from the Account Settings > Security > API token [Link](https://id.atlassian.com/manage-profile/security/api-tokens)
+  - Create the Jira API token from the [Account Settings > Security > API token](https://id.atlassian.com/manage-profile/security/api-tokens)
 
 - `JIRA_BASE_URL`
   - `<your_domain>.jira.com`
