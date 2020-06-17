@@ -8,13 +8,15 @@ A. Comment on Jira Issue on commit
 
   - [add-comment-to-issue.yml](.github/workflows/add-comment-to-issue.yml)
   - On push, find an associated Jira issue from the commits and post a comment to that issue.
-  -  Takes the form "<user> pushed to <branch> in <repository>"
+  - Comments take the form `"<user> pushed to <branch> in <repository>"`
 
 
 
 B. Move issue to Done state when commit message ends with substring `CLOSE ISSUE`
 
   - [transition-issue.yml](.github/workflows/transition-issue.yml)
+  - On push, find an associated Jira issue from the commits
+  - If the commit substring ends with `CLOSE ISSUE`, move the Jira issue into Done state
 
 
 ## Setup
@@ -31,7 +33,7 @@ The following key-value pairs need to be added to GitHub Secrets for the reposit
   - The email associated with the Jira API token.
   
   
-  ## Marketplace Actions Used
+## Marketplace Actions Used
 
 The following three GitHub Marketplace Actions are utilized for this automation:
 
@@ -39,3 +41,9 @@ The following three GitHub Marketplace Actions are utilized for this automation:
 - Jira Find Issue Key: https://github.com/marketplace/actions/jira-find-issue-key
 - Jira Add Comment: https://github.com/marketplace/actions/jira-add-comment
 - Jira Issue Transition: https://github.com/marketplace/actions/jira-issue-transition
+
+
+## Needed Improvements
+
+- Only attempt to run Comment on Issue if a corresponding Jira issue is found
+
